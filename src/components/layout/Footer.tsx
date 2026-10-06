@@ -139,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© 2026 Arena Barbearia. Todos os direitos reservados.</p>
           <div className="flex items-center gap-6">
-            <span>Ilhéus - Bahia</span>
+            <span>São Luís - Maranhão</span>
             <span>•</span>
             <span className="text-slate-400">Ecossistema BarberHub</span>
           </div>

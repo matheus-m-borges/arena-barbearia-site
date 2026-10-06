@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { X, Calendar, MapPin, CheckCircle2, MessageCircle } from 'lucide-react';
 import { business } from '../../config/business';
 
 interface BookingModalProps {
@@ -50,36 +50,45 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
           </div>
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#0084ff]">
-              Agendamento Online
+              Agendamento Arena
             </span>
             <h3 className="text-xl font-display font-bold text-white">
-              Em Breve no BarberHub
+              Atendimento & Agendamento
             </h3>
           </div>
         </div>
 
         <p className="text-sm text-slate-300 leading-relaxed mb-6">
-          Estamos integrando o sistema de agendamento online inteligente oficial da{' '}
-          <strong className="text-white">Arena Barbearia</strong> para você escolher
-          seu barbeiro e horário favorito em poucos cliques.
+          Você pode nos chamar diretamente no <strong className="text-emerald-400">WhatsApp</strong> para garantir seu horário ou comparecer por ordem de chegada. Em breve, agendamento 100% automatizado pelo <strong className="text-[#0084ff]">BarberHub</strong>!
         </p>
 
         <div className="bg-[#101724] border border-white/5 rounded-xl p-4 mb-6 space-y-3">
           <div className="flex items-start gap-3 text-xs text-slate-300">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+            <span>Telefone / WhatsApp: <strong className="text-white">{business.phoneDisplay}</strong></span>
+          </div>
+          <div className="flex items-start gap-3 text-xs text-slate-300">
             <CheckCircle2 className="w-4 h-4 text-[#ff5e00] flex-shrink-0 mt-0.5" />
-            <span>Atendimento por ordem de chegada ou contato direto.</span>
+            <span>Mesa de sinuca livre, ambiente climatizado e café expresso.</span>
           </div>
           <div className="flex items-start gap-3 text-xs text-slate-300">
-            <CheckCircle2 className="w-4 h-4 text-[#0084ff] flex-shrink-0 mt-0.5" />
-            <span>Mesa de sinuca livre, cerveja gelada e café enquanto você aguarda.</span>
-          </div>
-          <div className="flex items-start gap-3 text-xs text-slate-300">
-            <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+            <MapPin className="w-4 h-4 text-[#0084ff] flex-shrink-0 mt-0.5" />
             <span>{business.fullAddress}</span>
           </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
+          {business.whatsapp && (
+            <a
+              href={business.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Chamar no WhatsApp</span>
+            </a>
+          )}
           {business.instagram && (
             <a
               href={business.instagramUrl}
@@ -88,15 +97,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
               className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-display font-semibold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity"
             >
               <InstagramIcon className="w-4 h-4" />
-              <span>Ver no Instagram</span>
+              <span>Instagram</span>
             </a>
           )}
-          <button
-            onClick={onClose}
-            className="flex-1 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-display font-semibold text-xs uppercase tracking-wider transition-colors border border-white/10 cursor-pointer"
-          >
-            Entendido
-          </button>
         </div>
       </div>
     </div>
